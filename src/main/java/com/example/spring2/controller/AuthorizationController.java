@@ -1,5 +1,9 @@
-package com.example.spring2;
+package com.example.spring2.controller;
 
+import com.example.spring2.model.Authorities;
+import com.example.spring2.service.AuthorizationService;
+import com.example.spring2.exceptions.InvalidCredentials;
+import com.example.spring2.exceptions.UnauthorizedUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,9 +15,9 @@ import java.util.List;
 
 @RestController
 public class AuthorizationController {
-    AuthorizationService service;
+    private final AuthorizationService service;
 
-    public AuthorizationController(AuthorizationService service){
+    protected AuthorizationController(AuthorizationService service){
         this.service = service;
     }
 

@@ -1,5 +1,7 @@
-package com.example.spring2;
+package com.example.spring2.repository;
 
+import com.example.spring2.model.Authorities;
+import com.example.spring2.model.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.Map;
 
 @Repository
 public class UserRepository {
-    Map<String,User> usres = new HashMap<>();
+    private Map<String, User> usres = new HashMap<>();
 
     public UserRepository(){
         usres.put("Ivan", new User("Ivan","qwerty"));

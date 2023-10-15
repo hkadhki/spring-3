@@ -1,4 +1,4 @@
-package com.example.spring2;
+package com.example.spring2.model;
 
 import lombok.Getter;
 

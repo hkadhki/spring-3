@@ -1,20 +1,21 @@
-package com.example.spring2;
+package com.example.spring2.service;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.example.spring2.model.Authorities;
+import com.example.spring2.exceptions.InvalidCredentials;
+import com.example.spring2.exceptions.UnauthorizedUser;
+import com.example.spring2.repository.UserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.List;
 @Service
 public class AuthorizationService {
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public AuthorizationService(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 
-    List<Authorities> getAuthorities(String user, String password) {
+    public List<Authorities> getAuthorities(String user, String password) {
         if (isEmpty(user) || isEmpty(password)) {
             throw new InvalidCredentials("User name or password is empty");
         }
